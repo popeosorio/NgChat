@@ -6,7 +6,7 @@
 
   <ul>
     <li class="text" *ngFor="let item of items | async">
-      {{item.user}} - {{item.message}}
+      {{item.time | date: 'dd/MM/yyyy hh:mm:ss'}} | {{item.user}} dice: {{item.message}}
     </li>
   </ul>
   <h2>Usuario: </h2>

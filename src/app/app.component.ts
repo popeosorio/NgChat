@@ -11,18 +11,21 @@ import { Observable } from 'rxjs/Observable';
 export class AppComponent {
   items: Observable<any[]>;
 
-  message : string;
-  user : string;
-  @ViewChild("messageInput") messageInput : ElementRef;
-  @ViewChild("userInput") userInput : ElementRef;
+  message: string;
+  user: string;
+  date: Date;
+  @ViewChild("messageInput") messageInput: ElementRef;
+  @ViewChild("userInput") userInput: ElementRef;
 
   constructor(public db: AngularFirestore) {
-    this.items = db.collection('chat').valueChanges();
+    this.items = db.collection('chat', ref => ref.orderBy('time', 'asc')).valueChanges();
+
   }
 
   sendMessage() {
     this.user = this.userInput.nativeElement.value;
     this.message = this.messageInput.nativeElement.value;
-    this.db.collection('chat').add({message: this.message, user: this.user});
+    this.date = new Date();
+    this.db.collection('chat').add({ message: this.message, user: this.user, time: this.date });
   }
 }
