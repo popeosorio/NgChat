@@ -1,0 +1,31 @@
+.chat-bubble {
+    background-color: #DEF;
+    border: 2px solid #000;
+    color: #444;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 1.3em;
+    margin: 0 0 0 10px;
+    padding: 10px;
+    position: relative;
+    width: -webkit-fill-available;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 5px #FFF;
+    -webkit-box-shadow: 0 0 5px #FFF;
+    box-shadow: 0 0 5px #FFF;
+    margin-bottom: 5px;
+  }
+  .messageInformation{
+      text-align: left;
+  }
+  .messageContent{
+    text-align: right;
+}
+
+  .messageContent span {
+      color: #000;
+      font-family: Verdana;
+      text-shadow: 1px 4px 1px #ABC;
+  }

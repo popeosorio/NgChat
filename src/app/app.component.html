@@ -1,20 +1,31 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div id="title" style="text-align:center">
   <h1>
     NgChat:
   </h1>
+</div>
+<div id="chatBox">
+  <div *ngFor="let item of items | async" id="{{item.user}}-{{item.time | date: 'dd/MM/yyyy hh:mm:ss'}}" class="chat-bubble">
+    <div class="messageInformation">
+      <span> {{item.time | date: 'dd/MM/yyyy hh:mm:ss'}} |</span>
+      <span>
+        <b>{{item.user}} dice:</b>
+      </span>
+    </div>
+    <div class="messageContent">
+        <span>{{item.message}}</span>
+    </div>
+  </div>
+  <br/>
 
-  <ul>
-    <li class="text" *ngFor="let item of items | async">
-      {{item.time | date: 'dd/MM/yyyy hh:mm:ss'}} | {{item.user}} dice: {{item.message}}
-    </li>
-  </ul>
+</div>
+
+
+
+<div id="panel">
   <h2>Usuario: </h2>
-  <input #userInput type="text" id="user" />
+  <input #userInput type="text" id="inputUser" />
   <h2>Mensaje: </h2>
-  <input #messageInput type="text" id="message" />
+  <input #messageInput type="text" id="inputMessage" />
   <button (click)="sendMessage()">Enviar</button>
-  <br/>
-  <br/>
-
 </div>
